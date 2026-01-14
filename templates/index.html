@@ -22,7 +22,7 @@
         .badge-green { background: #e8f5e9; color: #2e7d32; }
         .badge-orange { background: #fff3e0; color: #e65100; }
         .btn { background: var(--unrwa-blue); color: white; text-decoration: none; padding: 10px; border-radius: 8px; text-align: center; font-size: 0.9em; margin-top: auto; font-weight: bold; }
-        #linkSearch { width: 100%; padding: 15px 25px; border-radius: 50px; border: 2px solid #ddd; margin-bottom: 30px; font-family: inherit; font-size: 1em; }
+        #linkSearch { width: 100%; padding: 15px 25px; border-radius: 50px; border: 2px solid #ddd; margin-bottom: 30px; font-family: inherit; font-size: 1em; outline: none; }
     </style>
 </head>
 <body>
@@ -34,13 +34,76 @@
 </header>
 
 <div class="container">
-    <input type="text" id="linkSearch" placeholder="ابحث عن أي ملف أو نموذج (مثلاً: عقود، مياومة، NCD)...">
+    <input type="text" id="linkSearch" placeholder="ابحث عن ملف أو نموذج...">
 
-    <h2 class="section-title"><i class="fas fa-folder-open"></i> المستندات والنماذج الإدارية</h2>
+    <h2 class="section-title"><i class="fas fa-calendar-week"></i> التقارير الأسبوعية</h2>
     <div class="grid">
+        <div class="card" data-title="Load Time تقرير ضغط العمل">
+            <span class="badge badge-blue">أسبوعي</span>
+            <h3>تقرير ضغط العمل (Load Time)</h3>
+            <a href="{{ links.load_time }}" target="_blank" class="btn">فتح التقرير</a>
+        </div>
+        <div class="card" data-title="NCD application تطبيق السكري">
+            <span class="badge badge-blue">أسبوعي</span>
+            <h3>تطبيق NCD Application</h3>
+            <a href="{{ links.encd }}" target="_blank" class="btn">فتح التطبيق</a>
+        </div>
+        <div class="card" data-title="MCH application رعاية الأمومة">
+            <span class="badge badge-blue">أسبوعي</span>
+            <h3>تطبيق MCH Application</h3>
+            <a href="{{ links.emch }}" target="_blank" class="btn">فتح التطبيق</a>
+        </div>
+    </div>
+
+    <h2 class="section-title"><i class="fas fa-users-cog"></i> إدارة الموظفين والبدلاء</h2>
+    <div class="grid">
+        <div class="card" data-title="Timesheet جدول الدوام للموظفين البدلاء المياومة">
+            <span class="badge badge-orange">نهاية كل شهر</span>
+            <h3>جدول الدوام - البدلاء المياومة</h3>
+            <a href="{{ links.timesheet }}" target="_blank" class="btn">إدخال البيانات</a>
+        </div>
+        <div class="card" data-title="عقود الموظفين البدلاء">
+            <span class="badge badge-green">فوري</span>
+            <h3>عقود الموظفين البدلاء</h3>
+            <a href="{{ links.contracts }}" target="_blank" class="btn">فتح المجلد</a>
+        </div>
+        <div class="card" data-title="تقييم الأداء 2026">
+            <span class="badge badge-orange">يوم 5 من كل شهر</span>
+            <h3>تقييم أداء البدلاء 2026</h3>
+            <a href="{{ links.performance_2026 }}" target="_blank" class="btn">فتح المجلد</a>
+        </div>
+        <div class="card" data-title="طلب بديل جديد Replacement Request">
+            <span class="badge badge-blue">عند الحاجة</span>
+            <h3>طلب موظف بديل (Request)</h3>
+            <a href="{{ links.requests }}" target="_blank" class="btn">فتح النموذج</a>
+        </div>
+        <div class="card" data-title="بيانات الموظفين البدلاء">
+            <span class="badge badge-blue">تحديث دوري</span>
+            <h3>سجل بيانات البدلاء</h3>
+            <a href="{{ links.replacement_data }}" target="_blank" class="btn">عرض الملف</a>
+        </div>
+        <div class="card" data-title="وثائق الموظفين البدلاء">
+            <span class="badge badge-blue">أرشيف</span>
+            <h3>وثائق الموظفين البدلاء</h3>
+            <a href="{{ links.documents }}" target="_blank" class="btn">فتح المجلد</a>
+        </div>
+    </div>
+
+    <h2 class="section-title"><i class="fas fa-file-medical"></i> المستندات الإدارية والإحصاء</h2>
+    <div class="grid">
+        <div class="card" data-title="Manning Table">
+            <span class="badge badge-green">ثابت</span>
+            <h3>Manning Table</h3>
+            <a href="{{ links.manning }}" target="_blank" class="btn">عرض الملف</a>
+        </div>
+        <div class="card" data-title="All DP Health سجل المياومة">
+            <span class="badge badge-green">ثابت</span>
+            <h3>سجل المياومة الشامل (All DP)</h3>
+            <a href="{{ links.daily_paid }}" target="_blank" class="btn">عرض الملف</a>
+        </div>
         <div class="card" data-title="نماذج إدارية">
             <span class="badge badge-blue">عام</span>
-            <h3>نماذج إدارية (Forms)</h3>
+            <h3>النماذج الإدارية (Forms)</h3>
             <a href="{{ links.forms }}" target="_blank" class="btn">فتح المجلد</a>
         </div>
         <div class="card" data-title="وثائق العيادات الإضافية">
@@ -48,79 +111,16 @@
             <h3>وثائق العيادات الإضافية</h3>
             <a href="{{ links.other_docs }}" target="_blank" class="btn">فتح المجلد</a>
         </div>
-        <div class="card" data-title="Manning Table">
-            <span class="badge badge-green">سجلات ثابتة</span>
-            <h3>Manning Table</h3>
-            <a href="{{ links.manning }}" target="_blank" class="btn">عرض الملف</a>
-        </div>
-        <div class="card" data-title="All DP Health سجل المياومة">
-            <span class="badge badge-green">سجلات ثابتة</span>
-            <h3>سجل موظفي المياومة (All DP)</h3>
-            <a href="{{ links.daily_paid }}" target="_blank" class="btn">عرض الملف</a>
-        </div>
-    </div>
-
-    <h2 class="section-title"><i class="fas fa-users-cog"></i> إدارة الموظفين والبدلاء</h2>
-    <div class="grid">
-        <div class="card" data-title="عقود الموظفين البدلاء">
-            <span class="badge badge-blue">إجباري</span>
-            <h3>عقود الموظفين البدلاء</h3>
-            <a href="{{ links.contracts }}" target="_blank" class="btn">فتح المجلد</a>
-        </div>
-        <div class="card" data-title="وثائق الموظفين البدلاء">
-            <span class="badge badge-blue">أرشيف</span>
-            <h3>وثائق الموظفين البدلاء</h3>
-            <a href="{{ links.documents }}" target="_blank" class="btn">فتح المجلد</a>
-        </div>
-        <div class="card" data-title="بيانات الموظفين البدلاء">
-            <span class="badge badge-orange">تحديث</span>
-            <h3>بيانات الموظفين البدلاء</h3>
-            <a href="{{ links.replacement_data }}" target="_blank" class="btn">فتح الملف</a>
-        </div>
-        <div class="card" data-title="طلب بديل جديد Replacement Request">
-            <span class="badge badge-orange">طلب</span>
-            <h3>طلب موظف بديل (Request)</h3>
-            <a href="{{ links.requests }}" target="_blank" class="btn">فتح النموذج</a>
-        </div>
-        <div class="card" data-title="تقييم الأداء 2026">
-            <span class="badge badge-green">سنوي</span>
-            <h3>تقييم أداء البدلاء 2026</h3>
-            <a href="{{ links.performance_2026 }}" target="_blank" class="btn">فتح التقييمات</a>
-        </div>
-    </div>
-
-    <h2 class="section-title"><i class="fas fa-heartbeat"></i> التقارير والبيانات الصحية</h2>
-    <div class="grid">
-        <div class="card" data-title="Timesheet جدول الدوام">
-            <span class="badge badge-blue">شهري</span>
-            <h3>جدول الدوام (Timesheet)</h3>
-            <a href="{{ links.timesheet }}" target="_blank" class="btn">إدخال البيانات</a>
-        </div>
-        <div class="card" data-title="Load Time ضغط العمل">
-            <span class="badge badge-blue">أسبوعي</span>
-            <h3>تقرير ضغط العمل (Load Time)</h3>
-            <a href="{{ links.load_time }}" target="_blank" class="btn">فتح التقرير</a>
-        </div>
         <div class="card" data-title="Distribution of Clients توزيع المراجعين">
-            <span class="badge badge-orange">إحصاء</span>
+            <span class="badge badge-blue">إحصاء</span>
             <h3>توزيع المراجعين (Clients)</h3>
             <a href="{{ links.clients }}" target="_blank" class="btn">عرض البيانات</a>
-        </div>
-        <div class="card" data-title="NCD application تطبيق السكري">
-            <span class="badge badge-green">تطبيق</span>
-            <h3>NCD Application</h3>
-            <a href="{{ links.encd }}" target="_blank" class="btn">فتح التطبيق</a>
-        </div>
-        <div class="card" data-title="MCH application رعاية الأمومة">
-            <span class="badge badge-green">تطبيق</span>
-            <h3>MCH Application</h3>
-            <a href="{{ links.emch }}" target="_blank" class="btn">فتح التطبيق</a>
         </div>
     </div>
 </div>
 
 <footer style="text-align: center; padding: 40px; color: #888;">
-    <p>© 2026 وكالة الغوث الدولية - جميع الحقوق محفوظة لمحفظة الزرقاء الصحية</p>
+    <p>© 2026 وكالة الغوث الدولية (UNRWA) | دائرة الصحة - منطقة الزرقاء</p>
 </footer>
 
 <script>
