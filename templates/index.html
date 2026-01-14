@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
-        :root { --unrwa-blue: #0072bc; --primary: #0056b3; --text-dark: #2d3436; }
+        :root { --unrwa-blue: #0072bc; --primary: #0056b3; --text-dark: #2d3436; --clerk-gold: #fff9db; }
         body { font-family: 'Tajawal', sans-serif; background: #f0f2f5; margin: 0; padding: 0; }
         header { background: white; padding: 25px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); border-top: 6px solid var(--unrwa-blue); }
         .unrwa-logo { color: var(--unrwa-blue); font-weight: 700; font-size: 1.8em; }
@@ -22,7 +22,12 @@
         .badge-green { background: #e8f5e9; color: #2e7d32; }
         .badge-orange { background: #fff3e0; color: #e65100; }
         .btn { background: var(--unrwa-blue); color: white; text-decoration: none; padding: 10px; border-radius: 8px; text-align: center; font-size: 0.9em; margin-top: auto; font-weight: bold; }
-        #linkSearch { width: 100%; padding: 15px 25px; border-radius: 50px; border: 2px solid #ddd; margin-bottom: 30px; font-family: inherit; font-size: 1em; outline: none; }
+        .btn-clerk { background: #f08c00; }
+        #linkSearch { width: 100%; padding: 15px 25px; border-radius: 50px; border: 2px solid #ddd; margin-bottom: 30px; font-family: inherit; font-size: 1em; outline: none; box-sizing: border-box; }
+        
+        /* Clerk Special Section */
+        .clerk-alert { background: var(--clerk-gold); border: 2px dashed #fcc419; border-radius: 15px; padding: 20px; margin-bottom: 30px; position: relative; }
+        .admin-edit-btn { position: absolute; top: 10px; left: 10px; color: #ccc; cursor: pointer; font-size: 0.7em; border: none; background: none; }
     </style>
 </head>
 <body>
@@ -34,7 +39,19 @@
 </header>
 
 <div class="container">
-    <input type="text" id="linkSearch" placeholder="ابحث عن ملف أو نموذج...">
+    <input type="text" id="linkSearch" placeholder="ابحث عن ملف، نموذج، أو تقرير...">
+
+    <div class="clerk-alert" id="clerkSection">
+        <button class="admin-edit-btn" onclick="toggleClerkAdmin()"><i class="fas fa-edit"></i> تحديث الرابط</button>
+        <h2 style="margin: 0 0 10px 0; color: #856404; font-size: 1.3em;"><i class="fas fa-bullhorn"></i> إعلان من كاتب المنطقة (Area Clerk)</h2>
+        <p id="clerkText" style="margin-bottom: 15px; color: #5c5f62;">يرجى مراجعة الرابط أدناه لاستكمال الطلبات المطلوبة حالياً.</p>
+        <a href="{{ links.clerk_request }}" id="clerkLinkBtn" target="_blank" class="btn btn-clerk" style="display: inline-block; width: auto; padding: 10px 30px;">فتح رابط الطلب الحالي</a>
+
+        <div id="clerkAdminPanel" style="display:none; margin-top:15px; border-top: 1px solid #fcc419; padding-top: 15px;">
+            <input type="text" id="newClerkLink" placeholder="أدخل رابط SharePoint الجديد هنا..." style="width: 70%; padding: 8px; border-radius: 5px; border: 1px solid #ddd;">
+            <button onclick="saveClerkLink()" style="padding: 8px 15px; background: #2e7d32; color: white; border: none; border-radius: 5px; cursor: pointer;">حفظ الرابط</button>
+        </div>
+    </div>
 
     <h2 class="section-title"><i class="fas fa-calendar-week"></i> التقارير الأسبوعية</h2>
     <div class="grid">
@@ -113,7 +130,7 @@
         </div>
         <div class="card" data-title="Distribution of Clients توزيع المراجعين">
             <span class="badge badge-blue">إحصاء</span>
-            <h3>توزيع المراجعين (Distribution of Clients)</h3>
+            <h3>توزيع المراجعين (Clients)</h3>
             <a href="{{ links.clients }}" target="_blank" class="btn">عرض البيانات</a>
         </div>
     </div>
@@ -124,20 +141,46 @@
 </footer>
 
 <script>
+    // تحديث الساعة
     function updateClock() {
         const now = new Date();
         document.getElementById('live-clock').innerText = now.toLocaleDateString('ar-JO', {weekday:'long', year:'numeric', month:'long', day:'numeric', hour:'2-digit', minute:'2-digit'});
     }
-    setInterval(updateClock, 1000); updateClock();
+    setInterval(updateClock, 1000); 
 
+    // محرك البحث
     document.getElementById('linkSearch').addEventListener('keyup', function() {
         let val = this.value.toLowerCase();
         document.querySelectorAll('.card').forEach(card => {
             card.style.display = card.getAttribute('data-title').toLowerCase().includes(val) ? "flex" : "none";
         });
     });
+
+    // وظائف قسم الكاتب
+    function toggleClerkAdmin() {
+        const panel = document.getElementById('clerkAdminPanel');
+        panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
+    }
+
+    function saveClerkLink() {
+        const newUrl = document.getElementById('newClerkLink').value;
+        if (newUrl) {
+            localStorage.setItem('clerk_saved_link', newUrl);
+            document.getElementById('clerkLinkBtn').href = newUrl;
+            alert('تم تحديث الرابط بنجاح!');
+            toggleClerkAdmin();
+        }
+    }
+
+    // عند تحميل الصفحة
+    window.onload = function() {
+        updateClock();
+        const savedLink = localStorage.getItem('clerk_saved_link');
+        if (savedLink) {
+            document.getElementById('clerkLinkBtn').href = savedLink;
+            document.getElementById('clerkText').innerText = "يوجد طلب جديد من الكاتب، يرجى الضغط على الزر أدناه:";
+        }
+    };
 </script>
 </body>
 </html>
-
-
