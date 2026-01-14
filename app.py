@@ -17,7 +17,7 @@ LINKS = {
     
     # البدلاء والشؤون الإدارية
     "timesheet": "https://unrwaorg-my.sharepoint.com/:x:/r/personal/n_alnashash_unrwa_org/_layouts/15/Doc.aspx?sourcedoc=%7B14B58B1C-7889-482D-B15C-FD10A92E11F4%7D&file=Health%20DP%20staff%20Timesheet.xlsx&fromShare=true&action=default&mobileredirect=true",
-    "contracts": "https://unrwaorg.sharepoint.com/:f:/r/sites/ZarkaArea/Shared%20Documents/%D8%B9%D9%82%D9%8وز%20%D8%A7%D9%84%D9%85%D9%88%D8%B8%D9%81%D9%8A%D9%86%20%D8%A7%D9%84%D8%A8%D8%AF%D9%84%D8%A7%D8%A1?csf=1&web=1&e=E7dM36",
+   "contracts": "https://unrwaorg.sharepoint.com/sites/ZarkaArea/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FZarkaArea%2FShared%20Documents%2F%D8%B9%D9%82%D9%88%D8%AF%20%D8%A7%D9%84%D9%85%D9%88%D8%B8%D9%81%D9%8A%D9%86%20%D8%A7%D9%84%D8%A8%D8%AF%D9%84%D8%A7%D8%A1&viewid=67d54a97%2Dc601%2D4fe8%2D8510%2D641a56daee60",
     "performance_2026": "https://unrwaorg.sharepoint.com/:f:/r/sites/ZarkaArea/Shared%20Documents/%D8%AA%D9%82%D9%8A%D9%8A%D9%85%20%D8%A3%D8%AF%D8%A7%D8%A1%20%D8%A7%D9%84%D9%85%D9%88%D8%B8%D9%81%D9%8A%D9%86%20%D8%A7%D9%84%D8%A8%D8%AF%D9%84%D8%A7%D8%A1%202026?csf=1&web=1&e=r4F0RK",
     "documents": "https://unrwaorg.sharepoint.com/:f:/r/sites/ZarkaArea/Shared%20Documents/%D9%88%D8%AB%D8%A7%D8%A6%D9%82%20%D8%A7%D9%84%D9%85%D9%88%D8%B8%D9%81%D9%8A%D9%86%20%D8%A7%D9%84%D8%A8%D8%AF%D9%84%D8%A7%D8%A1?csf=1&web=1&e=bsj8nX",
     "replacement_data": "https://unrwaorg-my.sharepoint.com/:x:/r/personal/n_alnashash_unrwa_org/_layouts/15/Doc.aspx?sourcedoc=%7BF8D49114-2D59-45F1-BFC4-28131329E5FE%7D&file=بيانات%20الموظفين%20البدلاء.xlsx&fromShare=true&action=default&mobileredirect=true",
@@ -41,4 +41,5 @@ if __name__ == '__main__':
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
+
 
