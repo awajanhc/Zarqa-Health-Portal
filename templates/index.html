@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منطقة الزرقاء</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body { font-family: sans-serif; background-color: #ffffff; color: #333; display: flex; flex-direction: column; align-items: center; padding: 20px; min-height: 100vh; margin: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACg7GaaAAAADElEQVQIW2NkYGBgYAAAAAwAAFQAAeiDh6cAAAAASUVORK5CYII='); background-repeat: repeat; justify-content: space-between; }
+        header { background-color: #007bff; color: white; padding: 20px; width: 100%; text-align: center; margin-bottom: 20px; }
+        h1 { margin: 0; font-size: 2.5em; }
+        .subheading { margin-top: 5px; font-size: 1.2em; color: #e3f2fd; }
+        .welcome-message { background-color: #f0f4c3; padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: center; border: 1px solid #d4e157; max-width: 80%; }
+        .button-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; width: 100%; max-width: 700px; margin-bottom: 30px; }
+        
+        /* Mobile Fix: Stack buttons on small screens */
+        @media (max-width: 600px) { .button-container { grid-template-columns: 1fr; } }
+
+        .button-box { display: flex; flex-direction: column; }
+        button { background-color: #0288d1; color: #e1f5fe; padding: 12px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; transition: background-color 0.3s ease; width: 100%; }
+        button:hover { background-color: #0277bd; }
+        .explanation-box { background-color: #f9f9f9; border: 1px solid #ccc; padding: 10px; margin-top: 10px; border-radius: 5px; font-size: 0.9em; color: #555; text-align: center; height: 80px; display: flex; justify-content: center; align-items: center; }
+        .new-section { margin-top: 40px; width: 100%; max-width: 700px; }
+        .new-section button { background-color: #4caf50; color: white; }
+        .section-title, .edit-title { font-size: 1.5em; font-weight: bold; margin-bottom: 20px; text-align: center; color: #007bff; }
+        .contact-text { margin-top: 30px; text-align: center; }
+        .contact-text a { color: #007bff; text-decoration: none; font-weight: bold; }
+        .outlook-float { position: fixed; bottom: 20px; left: 20px; z-index: 100; }
+        .outlook-float img { width: 60px; height: 60px; }
+        footer { background-color: #007bff; color: white; padding: 15px; width: 100%; text-align: center; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>منطقة الزرقاء</h1>
+        <div class="subheading">دائرة الصحة</div>
+    </header>
+
+    <p class="welcome-message">أهلاً بكم في صفحة منطقة الزرقاء. هنا يمكنكم الوصول إلى الروابط الهامة.</p>
+
+    <div class="edit-title">للعرض و التعديل</div>
+    <div class="button-container">
+        <div class="button-box">
+            <a href="{{ links.timesheet }}" target="_blank"><button>جدول دوام البدلاء</button></a>
+            <div class="explanation-box">يرجى إدخال البيانات قبل نهاية دوام اليوم الأخير من كل شهر.</div>
+        </div>
+        <div class="button-box">
+            <a href="{{ links.requests }}" target="_blank"><button>طلبات موظفي المياومة</button></a>
+            <div class="explanation-box">آخر موعد لاستلام الطلبات هو اليوم 12 من كل شهر.</div>
+        </div>
+        <div class="button-box">
+            <a href="{{ links.clients }}" target="_blank"><button>توزيع العملاء في منطقة الزرقاء</button></a>
+            <div class="explanation-box">يجب تقديمه بحد أقصى في اليوم 5 من كل شهر.</div>
+        </div>
+        <div class="button-box">
+            <a href="{{ links.replacement_data }}" target="_blank"><button>بيانات الموظفين البدلاء العاملين</button></a>
+            <div class="explanation-box">يجب تحديث بيانات الموظفين البدلاء فور مباشرة عملهم.</div>
+        </div>
+    </div>
+
+    <div class="new-section">
+        <div class="section-title">التقارير الأسبوعية</div>
+        <div class="button-container">
+            <a href="{{ links.load_time }}" target="_blank"><button>Load Time</button></a>
+            <a href="{{ links.encd }}" target="_blank"><button>ENCD</button></a>
+            <a href="{{ links.emch }}" target="_blank"><button>EMCH</button></a>
+        </div>
+    </div>
+
+    <div class="new-section">
+        <div class="section-title">للعرض فقط</div>
+        <div class="button-box" style="margin-bottom: 10px;">
+            <a href="{{ links.manning }}" target="_blank"><button style="background-color: #777;">جدول المناوبات (Manning Table)</button></a>
+        </div>
+        <div class="button-box">
+            <a href="{{ links.daily_paid }}" target="_blank"><button style="background-color: #777;">جميع موظفي المياومة</button></a>
+        </div>
+    </div>
+
+    <div class="contact-text">
+        <p>نسرين النشاش <a href="https://wa.me/962790288746"><i class="fab fa-whatsapp"></i></a></p>
+        <p>د.هيثم عبالرازق <a href="https://wa.me/962787414198"><i class="fab fa-whatsapp"></i></a></p>
+    </div>
+
+    <a href="mailto:n.alnashash@unrwa.org" class="outlook-float">
+        <img src="https://img.icons8.com/color/60/000000/ms-outlook.png" alt="Outlook">
+    </a>
+
+    <footer>
+        <p>© 2026 مكتب منطقة الزرقاء - جميع الحقوق محفوظة</p>
+    </footer>
+
+</body>
+</html>
