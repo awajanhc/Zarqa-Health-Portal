@@ -4,6 +4,7 @@ from flask import Flask, render_template
 app = Flask(__name__)
 
 # --- UPDATED LINKS 2026 ---
+# --- الروابط المحدثة 2026 ---
 LINKS = {
     "timesheet": "https://unrwaorg-my.sharepoint.com/:x:/r/personal/n_alnashash_unrwa_org/_layouts/15/Doc.aspx?sourcedoc=%7B14B58B1C-7889-482D-B15C-FD10A92E11F4%7D&file=Health%20DP%20staff%20Timesheet.xlsx&fromShare=true&action=default&mobileredirect=true",
     "requests": "https://unrwaorg-my.sharepoint.com/:x:/r/personal/n_alnashash_unrwa_org/_layouts/15/Doc.aspx?sourcedoc=%7B8F51B034-6A3E-479E-B72A-2BD2A24E75E1%7D&file=REQUEST%20FORM_JFO_Temp%20Replacement.xlsx&fromShare=true&action=default&mobileredirect=true",
@@ -15,9 +16,9 @@ LINKS = {
     "manning": "https://unrwaorg-my.sharepoint.com/:x:/r/personal/n_alnashash_unrwa_org/_layouts/15/Doc.aspx?sourcedoc=%7B1348D2C9-BB99-4CD0-8F41-48788004CDC2%7D&file=Manning%20Table%20%20%20%20Health%20%20%20Zarka%20%20%2019.03.2025.xlsx&wdLOR=cEE240FC3-1BFE-4864-9D80-F863855BDE30&fromShare=true&action=default&mobileredirect=true",
     "daily_paid": "https://unrwaorg-my.sharepoint.com/:x:/r/personal/n_alnashash_unrwa_org/_layouts/15/Doc.aspx?sourcedoc=%7BA8136684-5D00-41EF-A450-C9F8627DB25F%7D&file=All%20DP%20-%20Health%20-%20Zarka_.xlsx&wdLOR=c17AB2563-A195-4392-8180-9005FA4001E2&fromShare=true&action=default&mobileredirect=true",
     
-    # NEW LINKS ADDED BELOW:
+    # الروابط الجديدة والمصححة:
     "performance_2026": "https://unrwaorg.sharepoint.com/:f:/r/sites/ZarkaArea/Shared%20Documents/%D8%AA%D9%82%D9%8A%D9%8A%D9%85%20%D8%A3%D8%AF%D8%A7%D8%A1%20%D8%A7%D9%84%D9%85%D9%88%D8%B8%D9%81%D9%8A%D9%86%20%D8%A7%D9%84%D8%A8%D8%AF%D9%84%D8%A7%D8%A1%202026?csf=1&web=1&e=r4F0RK",
-    "contracts": "https://unrwaorg.sharepoint.com/:f:/r/sites/ZarkaArea/Shared%20Documents/%D8%B9%D9%82%D9%82%D9%88%D8%AF%20%D8%A7%D9%84%D9%85%D9%88%D8%B8%D9%81%D9%8A%D9%86%20%D8%A7%D9%84%D8%A8%D8%AF%D9%84%D8%A7%D8%A1?csf=1&web=1&e=0yvfgj",
+    "contracts": "https://unrwaorg.sharepoint.com/:f:/r/sites/ZarkaArea/Shared%20Documents/%D8%B9%D9%82%D9%82%D9%88%D8%AF%20%D8%A7%D9%84%D9%85%D9%88%D8%B8%D9%81%D9%8A%D9%86%20%D8%A7%D9%84%D8%A8%D8%AF%D9%84%D8%A7%D8%A1?csf=1&web=1&e=3yHTlV",
     "documents": "https://unrwaorg.sharepoint.com/:f:/r/sites/ZarkaArea/Shared%20Documents/%D9%88%D8%AB%D8%A7%D8%A6%D9%82%20%D8%A7%D9%84%D9%85%D9%88%D8%B8%D9%81%D9%8A%D9%86%20%D8%A7%D9%84%D8%A8%D8%AF%D9%84%D8%A7%D8%A1?csf=1&web=1&e=bsj8nX"
 }
 
@@ -28,3 +29,4 @@ def home():
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
+
